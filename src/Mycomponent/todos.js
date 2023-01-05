@@ -7,7 +7,7 @@ const todos = (props) => {
   return (
     <div className='container' style={mystyle}>
       <h3 className='text-center'>This is todos</h3>      
-      {props.abc.length==0 ?
+      {props.abc.length===0 ?
       <h1>No Todos to display</h1> :
       
         props.abc.map((poiuy)=>{return(<TodoItem todolist ={poiuy} key = {poiuy.sno} ondelete={props.ondelete}/>)})

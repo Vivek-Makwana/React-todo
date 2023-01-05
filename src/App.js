@@ -8,13 +8,8 @@ import { useState,useEffect } from 'react';
 import Addtodo from './Mycomponent/Addtodo';
 import About from './Mycomponent/about' 
 // import Delete from './Mycomponent/delete';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
 
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   var inittodo;
   if(localStorage.getItem("todo")==null)
@@ -28,7 +23,7 @@ function App() {
   useEffect(()=>{localStorage.setItem("todo",JSON.stringify(todo))},[todo])
   function abcd(){console.log(todo)}
   abcd();
-  const [p,setthis]=useState([{name:"Vivek",Age:21},{name:"Ketan",Age:20}])
+  
  const addtodo=(n,d)=>{
 //  this.preventDefault();
   if(!n || !d)
@@ -71,30 +66,25 @@ function App() {
   //   seta(10);
   // }
   return (
-    
-    <Router>
-      <Switch>
-          <Route exact path="/">
-          <Head></Head>
-          <Addtodo add={addtodo}></Addtodo>
-          <Todos abc= {todo} ondelete = {ondelete} />
-          </Route>
-          <Route path="/about">
-          <Head></Head>
-            <About />
-          </Route>
-      </Switch>
-    
+    <BrowserRouter>
+    <Routes>
+    <Route path="/" element={[<Head/>,<Addtodo add={addtodo}/>,<Todos abc= {todo} ondelete = {ondelete} />]} />
+    <Route path="/about" element={[<Head/>,<About />]} />
+    </Routes>
+    <Footer/>
+     </BrowserRouter>
      
      
-     {/* <TodoItems></TodoItems> */}
-     {/* <div>{p.map((e)=>{return e.name})}</div>
-     <div>{p.map((e)=>{return e.Age})}</div> */}
+    //  {/* <TodoItems></TodoItems> */}
+    //  {/* <div>{p.map((e)=>{return e.name})}</div>
+    //  <div>{p.map((e)=>{return e.Age})}</div> */}
      
-     {/* <button onClick={practise} >Click this</button> */}
-     <Footer/>
-     </Router>
+    //  {/* <button onClick={practise} >Click this</button> */}
+     
+
+
+
   );
-  }
+}
 
 export default App;

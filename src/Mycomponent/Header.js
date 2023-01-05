@@ -1,9 +1,7 @@
 // import React from 'react'
 import types from 'prop-types';
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
+  
   Link
 } from "react-router-dom";
 export function Head({a,b,c}){

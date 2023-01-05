@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 export default function Addtodo(props) {
    const [nam,setnam]=useState("")
    const [des,setdes]=useState("")
- let as;
+
   
   return (
     <div className='container'>
